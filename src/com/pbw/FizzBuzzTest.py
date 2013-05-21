@@ -17,7 +17,7 @@ class FizzBuzzTest(unittest.TestCase):
         self.check(10,"Buzz" )
         self.check(20,"Buzz" )
         self.check(21,"Fizz" )
-        self.check(30,"FizzBuzz" )
+        self.check(31,"FizzBuzz" )
         
     def check(self, value, answer):
         self.assertEqual(self.fb.check(value),answer)
