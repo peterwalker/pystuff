@@ -5,16 +5,11 @@ Created on May 22, 2013
 '''
 import array
 class Fibonacci(object):
-    cache = array.array('l')
-    '''
-    classdocs
-    '''
+    cache = dict()
+
     def __init__(self):
-        '''
-        Constructor
-        '''
-        self.cache.append(0)
-        self.cache.append(1)
+        self.cache[0]=0
+        self.cache[1]=1
         
     def sequence(self, value):
         sequence = array.array('l')
@@ -23,9 +18,9 @@ class Fibonacci(object):
         return sequence
              
     def fibCalc(self, value):
-        if (value==0):
-            return 0;
-        if (value==1):
-            return 1;
+        result = self.cache.get(value)
+        if (result!=None):
+            return result
         result = self.fibCalc(value - 1) + self.fibCalc(value - 2);
+        self.cache[value]=result
         return result;       
